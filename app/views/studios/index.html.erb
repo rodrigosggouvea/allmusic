@@ -1,31 +1,33 @@
-<h1>Listing studios</h1>
+<div class="page-header">
+			<h1>Busca: <span><%= params[:q_busca] %>  <%= params[:q_bairro] %></span></h1>
+		</div>
+<ul class="estudios">
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Type</th>
-    <th>Address</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
+<% if @studios.any? %>
 <% @studios.each do |studio| %>
-  <tr>
-    <td><%= studio.name %></td>
-    <td><%= studio.description %></td>
-    <td><%= studio.type %></td>
-    <td><%= studio.address %></td>
-    <td><%= studio.user_id %></td>
-    <td><%= link_to 'Show', studio %></td>
-    <td><%= link_to 'Edit', edit_studio_path(studio) %></td>
-    <td><%= link_to 'Destroy', studio, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  
+  <li class="row well">
+				<ul>
+					<li class="span4">
+						<%= link_to studio_path(studio) do %>
+						<%= image_tag "img_estudio.jpg" %>
+						<% end %>
+					</li>
+					<li class="bairro">
+					  <%= studio.neighborhood %>
+					</li>
+					<li>
+						<h2><%= link_to studio.name, studio_path(studio) %></h2>
+					</li>
+					<li>
+					  <%= studio.description %>
+					</li>
+					<li class="tipo"><%= studio.show_type %></li>
+				</ul>
+			</li>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Studio', new_studio_path %>
+<% else %>
+<%= 'Nao foi encontrado nenhum estudio nesse bairro' %>
+<% end %>
+</ul>

@@ -119,7 +119,7 @@ textarea {
   vertical-align: top;
 }
 
-footer{background: #000;}
+footer{background: #000; padding-top: 30px;}
 
 .clearfix {
   *zoom: 1;
@@ -158,9 +158,16 @@ body {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  color: #333;
-  background: url('body_bg.jpg') no-repeat #4b109a;  
-  padding-top: 40px;
+  color: #fff;
+  background: #000;
+  padding-top: 60px;
+}
+
+.estudios .well {background: none;}
+
+body.mainpage { background: url('body_bg.jpg') no-repeat #4b109a; padding-top: 0px; }
+.navbar .nav li.login_form {
+display: none;
 }
 
 a {
@@ -546,6 +553,28 @@ h6 {
   line-height: 1;
 }
 
+.busca .page-header h1 {
+color: #6d87e7;
+padding-top: 60px;
+font-size: 40px
+}
+
+.single .page-header h1 {
+color: #FFF;
+padding-top: 60px;
+font-size: 40px
+}
+
+.single .well {
+
+}
+
+
+.busca .page-header span {
+color: #FFF;
+}
+
+
 ul,
 ol {
   padding: 0;
@@ -560,7 +589,7 @@ ol ul {
 }
 
 ul {
-  list-style: disc;
+  list-style: none;
 }
 
 ol {
@@ -3605,11 +3634,27 @@ input[type="submit"].btn.btn-mini {
 }
 
 .mainpage .navbar-inner { background: none; box-shadow: none; border: none}
-.navbar.mainpage .navbar-inner li a {color: #DDD;}
-.main-search label { color: #FFF; font-size: 22px; line-height: 30px;}
+.navbar-inner li a {color: #DDD;}
+.main-search label { color: #FFF; font-size: 22px; line-height: 30px; position: relative; top: 4px;}
 .navbar .container {
   width: auto;
 }
+
+.estudios li, .single li{
+color: #fff;
+}
+
+.single li {font-size: 16px;line-height: 22px;}
+.estudios .tipo {
+color:#4b7bde; font-weight: bold; font-size: 16px; padding: 10px;
+}
+
+.single .gmaps4rails_map { padding: 5px; border:1px dashed #FFF;}
+ .single .tipo {color: #FFF; font-weight: bold; font-size: 16px; padding: 10px;}
+.estudios .bairro{font-weight: bold; color: #9ba9e7; padding: 5px;}
+.single .bairro  {color: #FFF; padding: 10px; font-size: 18px;}
+.single .bairro span {color: #9ba9e7; font-weight: bold;}
+.estudios .well {background: #000;}
 
 .nav-collapse.collapse {
   height: auto;

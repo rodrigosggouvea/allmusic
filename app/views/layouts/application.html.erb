@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="css/bootstrap.css" type="text/css" rel="stylesheet"/>
-  <link href="css/bootstrap-responsive.css" type="text/css" rel="stylesheet"/>
   <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script src="js/script.js"></script>
-  <script src="js/bootstrap.js"></script>
   <title>All Music Studios | Encontre estudios para ensaio e gravação.</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-</head>
-<header>
-<%= render "links" %>
-<% if session[:user_id].blank? %>
-<div id="login_container">  
-<%= render "sessions/login_form" %>
-</div>
-<% else %>
-  <%= User.find(session[:user_id]).email %> <%= link_to "logout", "/logout" %>
-<% end %>
+  <%= yield :head %>
 
+<link href="/assets/bootstrap.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+<link href="/assets/bootstrap-responsive.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<% if params[:action] == "main" %>
+  <body class="mainpage">
+<% else %>
+<header>
+  <%= render "links" %>
 </header>
-<% flash.each do |k,v| %>
-<%= flash[k] %>
 <% end %>
-<%= yield %>
+<div class="container">
+<% if params[:action] == "main"%>
+  <%= yield %>
+<% else %>
+	<section class="row single">
+  	<div class="span8">
+  		<%= yield %>
+  	</div>
+  	<div class="span4">
+		<div class="page-header">
+			<h1>Side</h1>
+		</div>
+	</div>
+	</section>
+<% end %>
+<% if params[:action] == "main"%>
+  </body>
+<% end %>
+	<%= yield :scripts %>
 </div>
-</body>
-<script type="text/javascript">
-  $(document).ready(function() {
-   $('#login_container').hide(); 
-   $('#login_link').click(function(e) {
-		  e.preventDefault();
-      $('#login_container').toggle();
-    });
-  });
-</script>
+
 </html>

@@ -15,7 +15,7 @@
 input.botao_busca {
   width: 35px;
   height: 35px;
-  background: url('lupa.png') no-repeat;
+  background: url('lupa.png') no-repeat #0074CC;
 }
 
 .clearfix:before,

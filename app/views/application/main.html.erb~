@@ -1,4 +1,4 @@
-<body class="mainpage">
+<body class="mainpage" style="background: url('body_bg.jpg') no-repeat #4b109a">
 
 <div class="container">
 	<%= render "links"%>
@@ -14,12 +14,12 @@
 	</section>
 	<section class="row main-search">
 		<%= form_tag studios_path, :method => :get, :class => "form-inline span12" do %>
-		<fieldset>  
+		<fieldset style="text-align: center">  
 			<label>BUSQUE</label>
   		<%= text_field_tag :q_busca, nil, :placeholder => "POR ENDEREÇO, NOME OU POR SERVIÇOS,", :class => "span4" %>
 			<label>OU SELECIONE UM</label>
   		<%= select_tag :q_bairro, options_for_select(["bairro"]+@neighborhoods) %>
-  		<%= submit_tag "lupa" %>
+  		<%= submit_tag "  ", :class => "botao_busca" %>
 		</fieldset>
 		<% end %>
 	</section>
@@ -31,11 +31,10 @@
 </div>
 <!-- FORM NEW_USER/STUDIO -->
 
-<section class="signinform row">
-	<!-- div class="container">	
-
-	</div -->
+<section class="signinform row well">
+	<div class="span6 offset2">	
 		<%= render "users/form"%>
+	</div>
 </section>
 </body>
 

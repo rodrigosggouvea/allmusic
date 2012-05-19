@@ -1,38 +1,30 @@
-<%= form_for(@user, :class => "form-horizontal") do |f| %>
+<%= form_for(@user, :html => {:class => "form-horizontal"}) do |f| %>
 <fieldset>
-			<a href="#" class="sign-btn-back btn btn-primary pull-right">Voltar</a>
 			<legend>Crie um login</legend> 
-<% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
 				<div class="control-group">
-					<label class="control-label" for="email">email</label>
+					<label class="control-label" for="email">Email</label>
 					<div class="controls">
 						<%= f.text_field :email %>
 					</div>
 				</div>
 
 				<div class="control-group">
-					<label class="control-label" for="email">password</label>
+					<label class="control-label" for="email">Password</label>
 					<div class="controls">
 						<%= f.password_field :password %>
 					</div>
 				</div>
 
 </fieldset>
+<fieldset>
+			<legend>Informações do Estúdio</legend>
   <%= f.fields_for :studios do |studio_fields| %>
     <%= render "users/studio_fields", :f => studio_fields %>
   <% end %>
-  <div class="actions">
-    <%= f.submit %>
+</fieldset>
+  <div class="form-actions">
+      <a href="#" class="sign-btn-back btn">Voltar</a>
+    <%= f.submit "Criar Usuário" , :class => "btn btn-primary" %>
   </div>
-<a href="#" class="sign-btn-back btn btn-primary">Voltar</a>
+
 <% end %>

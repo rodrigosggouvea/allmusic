@@ -11,6 +11,7 @@ class StudiosController < ApplicationController
     if !params[:q_busca].blank?
       @studios = @studios.search(params[:q_busca])
     end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @studios }
@@ -32,7 +33,7 @@ end
 
   def show
     @studio = Studio.find(params[:id])
-
+    @json   = @studio.to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @studio }

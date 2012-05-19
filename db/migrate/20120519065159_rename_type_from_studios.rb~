@@ -1,0 +1,8 @@
+class RenameTypeFromStudios < ActiveRecord::Migration
+  def up
+    rename_column :studios, :type, :tipo
+  end
+
+  def down
+  end
+end

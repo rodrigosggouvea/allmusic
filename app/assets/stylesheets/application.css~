@@ -14,3 +14,7 @@ body {
   background: url('../img/body_bg.jpg') no-repeat #4b109a;  
   padding-top: 40px;
 }
+
+body .preto {
+  background: #000;
+}

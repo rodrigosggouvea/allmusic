@@ -9,6 +9,12 @@
 	<li class="tipo">Estudio de: <span><%= @studio.show_type %></span></li>
 	<li><%= @studio.description %></li>
 </ul>
+
+<p>
+  <b>Address:</b>
+
+</p>
+
 <ul class="span4">
 				<li><h2>Endereço, Horários e Contato</h2></li>
 				<li>Segunda a Sexta: 8h até 22h</li>

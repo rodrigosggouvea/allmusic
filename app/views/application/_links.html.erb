@@ -1,14 +1,36 @@
-<div class="navbar navbar-fixed-top">
+		<% if params[:action] == "main" %>
+		  <div class="navbar">
+		<% else %>
+		  <div class="navbar navbar-fixed-top">
+		<% end %>
+	
 		<div class="navbar-inner">
 			<div class="container">
+			<% unless params[:action] == "main" %>
+			<div class="brand">
+				<%= image_tag "mini-logo.png" %>
+			</div>
+			<% end %>
 				<ul class="nav pull-right">
-					<li><%= link_to "O Projeto", root_path %></li>
-					<li><%= link_to "Quem Somos", root_path %></li>
-					<li><%= link_to "Contato", root_path %></li>
-           <li><a href="" id="login_link">Login</a></li>
+					<li><%= link_to "Home", root_path %></li>
+					<% if session[:user_id].blank? %>
+            <li><a href="#" class="login_button">login</a></li>
+					<% end %>
 					<% if User.find_by_id(session[:user_id]) and User.find_by_id(session[:user_id]).password == "admin" %>
-						<li><%= link_to "Users", users_path %></li>
-						<li><%= link_to "Approve Pending Studios", approve_index_studios_path %></li>
+						<li><%= link_to "Usuários", users_path %></li>
+						<li><%= link_to "Aprovar Estúdios Pendentes", approve_index_studios_path %></li>
+					<% end %>
+					<% if session[:user_id].blank? %>
+					  <!-- renderiza form de login -->
+					  <li class="login_form"><%= form_tag login_path do %>
+              <%= text_field_tag :email, nil, :placeholder => "email", :class => "input-large" %>
+              <%= password_field_tag :password, nil, :placeholder => "password", :class => "input-medium" %>
+              <%= submit_tag "Login" %>
+            <% end %></li>
+					<% else %>
+					  <!-- renderiza link de logout -->
+					  <li><%= link_to User.find_by_id(session[:user_id]).email, edit_user_path(User.find_by_id(session[:user_id])) %></li>
+					  <li><%= link_to "Logout", logout_path %></li>
 					<% end %>
 				</ul>
 			</div>

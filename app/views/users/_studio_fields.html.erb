@@ -1,38 +1,39 @@
 	<div class="control-group">
-		<label class="control-label" for="name">name</label>
+		<label class="control-label" for="name">Nome do Estúdio</label>
 		<div class="controls">
 			<%= f.text_field :name %>
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="description">Description</label>
+		<label class="control-label" for="description">Descrição</label>
 		<div class="controls">
-			<%= f.text_field :description %>
+			<%= f.text_area :description, :rows => 3 %>
 		</div>
 	</div>
   <div class="control-group">
+  <%= f.label :tipo, :class => "control-label" %>
 		<div class="controls">
-    	<%= f.label :type, :class => "control-label" %>
+    
 			<label class="radio">	    
-				<%= f.radio_button :type, 0 %> Gravação
+				<%= f.radio_button :tipo, 0 %> Gravação
 			</label>
 			<label class="radio">	    
-				<%= f.radio_button :type, 1 %> Ensaio
+				<%= f.radio_button :tipo, 1 %> Ensaio
 			</label>
 			<label class="radio">	    
-				<%= f.radio_button :type, 2 %> Gravação e Ensaio
+				<%= f.radio_button :tipo, 2 %> Gravação e Ensaio
 			</label>
   	</div>
 	</div>
   <div class="control-group">
+   <%= f.label "Bairro", :class => "control-label" %>
 		<div class="controls">
- 		   <%= f.label :neighborhood, :class => "control-label" %>
  		   <%= f.select :neighborhood, options_for_select(@neighborhoods) %>
  		 </div>
 	</div>
   <div class="control-group">
+   <%= f.label "Endereço", :class => "control-label" %>
 		<div class="controls">
- 		   <%= f.label :address, :class => "control-label" %>
   		  <%= f.text_field :address %>
   	</div>
 	</div>

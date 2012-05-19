@@ -1,11 +1,13 @@
 <div class="page-header">
-			<h1>Aprovar Estúdios</h1>
+			<h1>Busca: <span><%= params[:q_busca] %></span></h1>
 		</div>
 <ul class="estudios">
 
+
+<% if @studios.any? %>
 <% @studios.each do |studio| %>
   
-  <li class="row">
+  <li class="row well">
 				<ul>
 					<li class="span4">
 						<%= link_to studio_path(studio) do %>
@@ -24,5 +26,8 @@
 					<li class="tipo"><%= studio.show_type %></li>
 				</ul>
 			</li>
+<% end %>
+<% else %>
+<%= 'Nao foi encontrado nenhum estudio nesse bairro' %>
 <% end %>
 </ul>

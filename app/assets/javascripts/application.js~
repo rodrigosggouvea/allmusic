@@ -8,3 +8,13 @@
 //= require jquery_ujs
 //= require_tree .
 
+
+  $(document).ready(function() {
+   $('#login_container2').hide(); 
+   $('#login_link2').click(function(e) {
+		  e.preventDefault();
+      $('#login_container2').toggle();
+      
+    });
+  });
+

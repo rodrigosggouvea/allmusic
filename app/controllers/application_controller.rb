@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def main
 	
     # bairros -> 0, 1, 2, 3, 4, 5
-		@neighborhoods = Studio::NEIGHBORHOODS
+		@neighborhoods = Studio::NEIGHBORHOODS 
 		@user = User.new
     @studios_types = Studio::STUDIO_TYPES
     @user.studios.build
