@@ -1,0 +1,43 @@
+	<div class="control-group">
+		<label class="control-label" for="name">name</label>
+		<div class="controls">
+			<%= f.text_field :name %>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="description">Description</label>
+		<div class="controls">
+			<%= f.text_field :description %>
+		</div>
+	</div>
+  <div class="control-group">
+		<div class="controls">
+    	<%= f.label :type, :class => "control-label" %>
+
+						<label class="radio">
+							<input type="radio" value="1" id="radio1"> Ensaio
+						</label>
+
+<label class="radio">	    
+<%= f.radio_button :type, 0 %> Gravação
+</label>
+
+  	  <%= f.radio_button :type, 1 %>
+	    <%= f.label "Ensaio", :class => "control-label" %>
+
+	    <%= f.radio_button :type, 2 %>
+	    <%= f.label "Gravação e Ensaio", :class => "control-label" %>
+  	</div>
+	</div>
+  <div class="control-group">
+		<div class="controls">
+ 		   <%= f.label :neighborhood, :class => "control-label" %>
+ 		   <%= f.select :neighborhood, options_for_select(@neighborhoods) %>
+ 		 </div>
+	</div>
+  <div class="control-group">
+		<div class="controls">
+ 		   <%= f.label :address, :class => "control-label" %>
+  		  <%= f.text_field :address %>
+  	</div>
+	</div>

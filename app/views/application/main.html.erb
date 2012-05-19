@@ -1,0 +1,42 @@
+<body class="mainpage">
+
+<div class="container">
+	<%= render "links"%>
+	<section class="row">
+		<div class="hero-unit clearfix">
+			<h1 class="span6 offset1">
+				<img src="assets/all-music-studios-logo.png" alt="All Music Studios Logo" title="Encontre estudios para ensaio e gravação." height="113" width="675"/>
+			</h1>
+			<p class="span4">Encontre estúdios de ensaio ou gravação para sua banda, próximos da sua casa !</p>
+			<div></div>
+			<div></div>
+		</div>
+	</section>
+	<section class="row main-search">
+		<%= form_tag studios_path, :method => :get, :class => "form-inline span12" do %>
+		<fieldset>  
+			<label>BUSQUE</label>
+  		<%= text_field_tag :q_busca, nil, :placeholder => "POR ENDEREÇO, NOME OU POR SERVIÇOS,", :class => "span4" %>
+			<label>OU SELECIONE UM</label>
+  		<%= select_tag :q_bairro, options_for_select(["bairro"]+@neighborhoods) %>
+  		<%= submit_tag "lupa" %>
+		</fieldset>
+		<% end %>
+	</section>
+	<section class="row signin">
+		<div class="span8 offset4">
+			<p>Você tem um estúdio? Então <a href="#" class="sign-btn">cadastre</a> aqui</p>
+		</div>
+	</section>
+</div>
+<!-- FORM NEW_USER/STUDIO -->
+
+<section class="signinform row">
+	<div class="container">	
+		<%= render "users/form"%>
+	</div>
+</section>
+</body>
+
+
+ 

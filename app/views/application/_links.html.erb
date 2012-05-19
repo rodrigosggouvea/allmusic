@@ -1,0 +1,16 @@
+<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<ul class="nav pull-right">
+					<li><%= link_to "O Projeto", root_path %></li>
+					<li><%= link_to "Quem Somos", root_path %></li>
+					<li><%= link_to "Contato", root_path %></li>
+           <li><a href="" id="login_link">Login</a></li>
+					<% if User.find_by_id(session[:user_id]) and User.find_by_id(session[:user_id]).password == "admin" %>
+						<li><%= link_to "Users", users_path %></li>
+						<li><%= link_to "Approve Pending Studios", approve_index_studios_path %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
